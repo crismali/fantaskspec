@@ -21,7 +21,9 @@ module RSpec
             name
           end
 
-          subject { ::Rake::Task[task_name] }
+          fetch_task = proc { ::Rake::Task[task_name] }
+          subject(&fetch_task)
+          let(:task, &fetch_task)
         end
       end
     end

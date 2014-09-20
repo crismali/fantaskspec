@@ -27,26 +27,30 @@ RSpec.describe RSpec::Rake do
       end
 
       context "some_task" do
+        def self.it_still_has_some_task_as_the_subject
+          it "still has some_task as the subject" do
+            expect(subject.name).to eq("some_task")
+          end
+        end
+
         it "makes some_task the subject" do
           expect(subject.name).to eq("some_task")
         end
 
+        it "makes `task` the task" do
+          expect(task.name).to eq("some_task")
+        end
+
         context "this context has spaces so" do
-          it "still has some_task as the subject" do
-            expect(subject.name).to eq("some_task")
-          end
+          it_still_has_some_task_as_the_subject
         end
 
         context "ThisContextLacksSpacesButHasCapitalLetters" do
-          it "still has some_task as the subject" do
-            expect(subject.name).to eq("some_task")
-          end
+          it_still_has_some_task_as_the_subject
         end
 
         context "this:context:looks:like:a:rake:task" do
-          it "still has some_task as the subject" do
-            expect(subject.name).to eq("some_task")
-          end
+          it_still_has_some_task_as_the_subject
         end
       end
 
