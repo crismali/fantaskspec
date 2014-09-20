@@ -42,6 +42,12 @@ RSpec.describe RSpec::Rake do
             expect(subject.name).to eq("some_task")
           end
         end
+
+        context "this:context:looks:like:a:rake:task" do
+          it "still has some_task as the subject" do
+            expect(subject.name).to eq("some_task")
+          end
+        end
       end
 
       context "namespaced:namespaced" do

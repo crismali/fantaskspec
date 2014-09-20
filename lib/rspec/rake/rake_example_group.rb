@@ -6,11 +6,12 @@ module RSpec
     module RakeExampleGroup
       def self.included(klass)
         klass.instance_eval do
-
+          let(:task_names) { ::Rake::Task.tasks.map(&:name) }
           let(:task_name) do
             descriptions = self.class.parent_groups.map(&:description)
+
             name = descriptions.find do |description|
-              description.match(/\A[^\sA-Z]+\z/)
+              task_names.include?(description)
             end
 
             if name.nil?
