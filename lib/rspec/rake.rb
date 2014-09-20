@@ -1,3 +1,4 @@
+require "rake"
 require "rspec/core"
 
 require "rspec/rake/version"

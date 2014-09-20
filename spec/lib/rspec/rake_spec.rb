@@ -20,5 +20,35 @@ RSpec.describe RSpec::Rake do
     it "has access to methods defined in the rake example group" do
       expect(self).to be_a(RSpec::Rake::RakeExampleGroup)
     end
+
+    context "task inference" do
+      it "raises an error if it cannot infer the task name" do
+        expect { task_name }.to raise_error(RSpec::Rake::AmbiguousNameError, "unable to infer the name of the task. Please rename  your describe/context or specify your task name by 'letting' :task_name")
+      end
+
+      context "some_task" do
+        it "makes some_task the subject" do
+          expect(subject.name).to eq("some_task")
+        end
+
+        context "this context has spaces so" do
+          it "still has some_task as the subject" do
+            expect(subject.name).to eq("some_task")
+          end
+        end
+
+        context "ThisContextLacksSpacesButHasCapitalLetters" do
+          it "still has some_task as the subject" do
+            expect(subject.name).to eq("some_task")
+          end
+        end
+      end
+
+      context "namespaced:namespaced" do
+        it "makes namespaced:namespaced the subject" do
+          expect(subject.name).to eq("namespaced:namespaced")
+        end
+      end
+    end
   end
 end

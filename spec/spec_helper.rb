@@ -15,6 +15,24 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require_relative "../lib/rspec/rake"
+
+desc "Some rake task"
+task :some_task do
+  "I don't do much"
+end
+
+desc "Some dependent rake task"
+task dependent_task: :some_task do
+  "I, too, do very little"
+end
+
+namespace :namespaced do
+  desc "namespaced task"
+  task :namespaced do
+    "Agreed, we all do nothing"
+  end
+end
+
 RSpec.configure do |config|
   config.infer_rake_task_specs_from_file_location!
 
