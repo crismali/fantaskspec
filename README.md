@@ -1,13 +1,14 @@
-# Rspec::Rake
+RSpec Rake
+===========
+Makes it easy to test your Rake tasks with RSpec.
 
-TODO: Write a gem description
-
-## Installation
+Installation
+------------
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rspec-rake'
+gem "rspec-rake"
 ```
 
 And then execute:
@@ -18,7 +19,8 @@ Or install it yourself as:
 
     $ gem install rspec-rake
 
-## Usage
+Usage
+----
 
 TODO: Write usage instructions here
 
