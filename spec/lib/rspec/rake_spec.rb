@@ -1,6 +1,51 @@
 require "spec_helper"
 
 RSpec.describe RSpec::Rake do
+
+  context "matchers", type: :rake do
+    context "dependent_task" do
+      describe "#depends_on" do
+        it "passes if the task depends on the specified task" do
+          expect(subject).to depend_on("some_task")
+        end
+
+        it "is indifferent to symbols" do
+          expect(subject).to depend_on(:some_task)
+        end
+
+        it "fails if the task does not depend on the specified task" do
+          expect do
+            expect(subject).to depend_on("foo")
+          end.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+        end
+
+        context "multi_dependent" do
+          it "passes if the task depends on all of the specified tasks" do
+            expect(subject).to depend_on("namespaced:namespaced", "some_task")
+          end
+
+          it "fails if the task does not depend on one of the specified tasks" do
+            expect do
+              expect(subject).to depend_on("dependent_task", "some_task")
+            end.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+          end
+
+          it "fails if the task does not depend on the specified tasks in the same order" do
+            expect do
+              expect(subject).to depend_on("some_task", "namespaced:namespaced")
+            end.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+          end
+
+          it "fails if the task depends on other tasks that are not specified" do
+            expect do
+              expect(subject).to depend_on("some_task")
+            end.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+          end
+        end
+      end
+    end
+  end
+
   describe "#initialize_configuration" do
     let(:config) { RSpec::Core::Configuration.new }
 

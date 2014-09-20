@@ -26,6 +26,11 @@ task dependent_task: :some_task do
   "I, too, do very little"
 end
 
+desc "Some very dependent task"
+task multi_dependent: ["namespaced:namespaced", :some_task] do
+  "Let's all do nothing!"
+end
+
 namespace :namespaced do
   desc "namespaced task"
   task :namespaced do

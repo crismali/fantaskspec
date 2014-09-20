@@ -4,6 +4,8 @@ module RSpec
     end
 
     module RakeExampleGroup
+      extend RSpec::Matchers::DSL
+
       def self.included(klass)
         klass.instance_eval do
           let(:task_names) { ::Rake::Task.tasks.map(&:name) }
@@ -24,6 +26,12 @@ module RSpec
           fetch_task = proc { ::Rake::Task[task_name] }
           subject(&fetch_task)
           let(:task, &fetch_task)
+        end
+      end
+
+      matcher :depend_on do |*expected|
+        match do |actual|
+          actual.prerequisites == expected.map(&:to_s)
         end
       end
     end
