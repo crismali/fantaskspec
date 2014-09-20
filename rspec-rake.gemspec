@@ -5,7 +5,7 @@ require "rspec/rake/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "rspec-rake"
-  spec.version       = Rspec::Rake::VERSION
+  spec.version       = RSpec::Rake::VERSION
   spec.authors       = ["Michael Crismali"]
   spec.email         = ["michael.crismali@gmail.com"]
   spec.summary       = %q{Makes it easy to test your Rake tasks with RSpec.}

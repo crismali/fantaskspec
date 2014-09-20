@@ -1,7 +1,9 @@
-require "rspec/rake/version"
+require "rspec/core"
 
-module Rspec
+require "rspec/rake/version"
+require "rspec/rake/configuration"
+
+module RSpec
   module Rake
-    # Your code goes here...
   end
 end
