@@ -23,7 +23,7 @@ RSpec.describe RSpec::Rake do
 
     context "task inference" do
       it "raises an error if it cannot infer the task name" do
-        expect { task_name }.to raise_error(RSpec::Rake::AmbiguousNameError, "unable to infer the name of the task. Please rename  your describe/context or specify your task name by 'letting' :task_name")
+        expect { task_name }.to raise_error(RSpec::Rake::AmbiguousNameError, "unable to infer the name of the task. Please rename your describe/context or specify your task name via `let(:task_name) { ... }`")
       end
 
       context "some_task" do

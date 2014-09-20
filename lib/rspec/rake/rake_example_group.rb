@@ -15,7 +15,7 @@ module RSpec
             end
 
             if name.nil?
-              raise AmbiguousNameError, "unable to infer the name of the task. Please rename  your describe/context or specify your task name by 'letting' :task_name"
+              raise AmbiguousNameError, "unable to infer the name of the task. Please rename your describe/context or specify your task name via `let(:task_name) { ... }`"
             end
 
             name
