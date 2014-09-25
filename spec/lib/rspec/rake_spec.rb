@@ -72,12 +72,6 @@ RSpec.describe RSpec::Rake do
       end
 
       context "some_task" do
-        def self.it_still_has_some_task_as_the(type)
-          it "still has some_task as the #{type}" do
-            expect(send(type).name).to eq("some_task")
-          end
-        end
-
         it "makes some_task the subject" do
           expect(subject.name).to eq("some_task")
         end
@@ -86,19 +80,18 @@ RSpec.describe RSpec::Rake do
           expect(task.name).to eq("some_task")
         end
 
-        context "this context has spaces so" do
-          it_still_has_some_task_as_the(:subject)
-          it_still_has_some_task_as_the(:task)
-        end
-
-        context "ThisContextLacksSpacesButHasCapitalLetters" do
-          it_still_has_some_task_as_the(:subject)
-          it_still_has_some_task_as_the(:task)
-        end
-
-        context "this:context:looks:like:a:rake:task" do
-          it_still_has_some_task_as_the(:subject)
-          it_still_has_some_task_as_the(:task)
+        [
+          "this context has spaces but",
+          "ThisContextLacksSpacesButHasCapitalLettersBut",
+          "this:context:looks:like:a:rake:task:but"
+        ].each do |context_name|
+          context context_name do
+            [:subject, :task].each do |type|
+              it "still has some_task as the #{type}" do
+                expect(send(type).name).to eq("some_task")
+              end
+            end
+          end
         end
 
         context "this will have another rake task named context" do
