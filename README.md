@@ -1,4 +1,4 @@
-RSpec Rake
+Fantaskspec
 ===========
 Makes it easy to test your Rake tasks with RSpec.
 
@@ -8,18 +8,14 @@ Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "rspec-rake"
+gem "fantaskspec"
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install rspec-rake
-
-Then whereever you're configuring RSpec:
+Then whereever you're configuring RSpec (`spec_helper`, `rails_helper`, whatever):
 
 ```ruby
 RSpec.configure do |config|
@@ -48,7 +44,7 @@ We can test it like this:
 require "spec_helper"
 
 RSpec.describe "some_task" do
-  it { is_expected.to depend_on :environment }
+  it { is_expected.to depend_on(:environment) }
 
   it "executes some code" do
     expect(subject.execute).to eq(task.execute)
@@ -62,14 +58,14 @@ RSpec.describe "some_task" do
   end
 end
 ```
-Here `subject` and `task` are both our Rake task called `some_task`. RSpec Rake gives
+Here `subject` and `task` are both our Rake task called `some_task`. Fantaskspec gives
 us a handy `depend_on` matcher so we can ensure are dependencies are correct.
 
 Here we're assuming we've called `config.infer_rake_task_specs_from_file_location!` in our
 `RSpec.configure` block so we don't need to specify `type: :rake` in any of our example groups
 as long as the test is located at `spec/tasks` or `spec/lib/tasks`.
 
-We also have access to `task_name`, which is just the RSpec Rake's best guess at the name of the task
+We also have access to `task_name`, which is just the Fantaskspec's best guess at the name of the task
 we're specifying is, based on the description string we pass to `describe` or `context`.
 
 Rake testing gotchas
@@ -82,7 +78,7 @@ probaly won't have any problems.
 Contributing
 ------------
 
-1. Fork it ( https://github.com/[my-github-username]/rspec-rake/fork )
+1. [Fork it](https://github.com/crismali/fantaskspec/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
