@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe RSpec::Rake do
+RSpec.describe Fantaskspec do
 
   context "matchers", type: :rake do
     context "dependent_task" do
@@ -50,7 +50,7 @@ RSpec.describe RSpec::Rake do
     let(:config) { RSpec::Core::Configuration.new }
 
     it "mixes in the rspec rake example group into the rake type" do
-      expected = [:include, RSpec::Rake::RakeExampleGroup, { type: :rake }]
+      expected = [:include, Fantaskspec::RakeExampleGroup, { type: :rake }]
       subject.initialize_configuration(config)
       expect(config.include_or_extend_modules).to include(expected)
     end
@@ -63,12 +63,12 @@ RSpec.describe RSpec::Rake do
 
   context "rake type specs", type: :rake do
     it "has access to methods defined in the rake example group" do
-      expect(self).to be_a(RSpec::Rake::RakeExampleGroup)
+      expect(self).to be_a(Fantaskspec::RakeExampleGroup)
     end
 
     context "task inference" do
       it "raises an error if it cannot infer the task name" do
-        expect { task_name }.to raise_error(RSpec::Rake::AmbiguousNameError, "unable to infer the name of the task. Please rename your describe/context or specify your task name via `let(:task_name) { ... }`")
+        expect { task_name }.to raise_error(Fantaskspec::AmbiguousNameError, "unable to infer the name of the task. Please rename your describe/context or specify your task name via `let(:task_name) { ... }`")
       end
 
       context "some_task" do

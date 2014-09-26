@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "rspec/rake/version"
+require "fantaskspec/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "rspec-rake"
-  spec.version       = RSpec::Rake::VERSION
+  spec.name          = "fantaskspec"
+  spec.version       = Fantaskspec::VERSION
   spec.authors       = ["Michael Crismali"]
   spec.email         = ["michael.crismali@gmail.com"]
   spec.summary       = %q{Makes it easy to test your Rake tasks with RSpec.}

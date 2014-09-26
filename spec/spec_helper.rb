@@ -14,7 +14,7 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require_relative "../lib/rspec/rake"
+require_relative "../lib/fantaskspec"
 
 desc "Some rake task"
 task :some_task do
