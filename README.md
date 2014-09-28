@@ -27,6 +27,7 @@ end
 That will make it so that specs in `spec/lib/tasks` and `spec/tasks` will automatically have a type
 of `:rake` (unless you override it).
 
+### Loading your Rake tasks
 This gem doesn't load your Rake tasks for you, that's something you have to do. If you're using Rails, just
 add `Rails.application.load_tasks` to your `rails_helper.rb`. If you're not using Rails, just `require` the files you need.
 

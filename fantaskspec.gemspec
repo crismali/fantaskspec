@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["michael.crismali@gmail.com"]
   spec.summary       = %q{Makes it easy to test your Rake tasks with RSpec.}
   spec.description   = %q{Makes it easy to test your Rake tasks with RSpec.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/crismali/fantaskspec"
   spec.license       = "Apache"
 
   spec.files         = Dir["lib/**/*", "LICENSE", "README.md"]
