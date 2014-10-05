@@ -18,6 +18,8 @@ And then execute:
 Then whereever you're configuring RSpec (`spec_helper`, `rails_helper`, whatever):
 
 ```ruby
+require "fantaskspec"
+
 RSpec.configure do |config|
   # ...
   config.infer_rake_task_specs_from_file_location!
@@ -25,7 +27,14 @@ RSpec.configure do |config|
 end
 ```
 That will make it so that specs in `spec/lib/tasks` and `spec/tasks` will automatically have a type
-of `:rake` (unless you override it).
+of `:rake` (unless you override it). If you don't want to use `infer_rake_task_specs_from_file_location!`
+you can explicitly set the spec type like so:
+
+```ruby
+RSpec.describe "namespace:foo", type: :rake do
+  # Lots of lovely specs
+end
+```
 
 ### Loading your Rake tasks
 This gem doesn't load your Rake tasks for you, that's something you have to do. If you're using Rails, just
