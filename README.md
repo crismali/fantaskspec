@@ -15,7 +15,7 @@ And then execute:
 
     $ bundle
 
-Then in your `spec_helper` or `rails_helper`):
+Then in your `spec_helper` or `rails_helper`:
 
 ```ruby
 require "fantaskspec"
