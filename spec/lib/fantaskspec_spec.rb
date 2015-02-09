@@ -50,9 +50,17 @@ RSpec.describe Fantaskspec do
     let(:config) { RSpec::Core::Configuration.new }
 
     it "mixes in the rspec rake example group into the rake type" do
-      expected = [:include, Fantaskspec::RakeExampleGroup, { type: :rake }]
       subject.initialize_configuration(config)
-      expect(config.include_or_extend_modules).to include(expected)
+
+      if RSpec::Version::STRING.to_f == 3.2
+        expected = [Fantaskspec::RakeExampleGroup, { type: :rake }]
+        suspect = config.instance_eval { @include_modules }.items_and_filters
+      else
+        expected = [:include, Fantaskspec::RakeExampleGroup, { type: :rake }]
+        suspect = config.include_or_extend_modules
+      end
+
+      expect(suspect).to include(expected)
     end
 
     it "defines #infer_rake_task_specs_from_file_location! on the configuration object" do
