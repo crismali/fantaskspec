@@ -22,9 +22,8 @@ module Fantaskspec
           name
         end
 
-        fetch_task = proc { ::Rake::Task[task_name] }
-        subject(&fetch_task)
-        let(:task, &fetch_task)
+        let(:task) { ::Rake::Task[task_name] }
+        subject { task }
       end
     end
 
