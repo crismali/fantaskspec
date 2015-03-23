@@ -13,7 +13,7 @@ gem "fantaskspec"
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Then in your `spec_helper` or `rails_helper`:
 
@@ -88,7 +88,12 @@ Contributing
 ------------
 
 1. [Fork it](https://github.com/crismali/fantaskspec/fork)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+2. Clone it locally
+3. `cd` into the project root
+4. `bundle install`
+5. `appraisal install`
+6. Run the specs with `appraisal rspec`
+7. Create your feature branch (`git checkout -b my-new-feature`)
+8. Commit your changes (`git commit -am 'Add some feature'`)
+9. Push to the branch (`git push origin my-new-feature`)
+10. Create a new Pull Request
