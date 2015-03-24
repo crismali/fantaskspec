@@ -1,6 +1,6 @@
 Fantaskspec
 ===========
-Makes it easy to test your Rake tasks with RSpec.
+Makes it easy to test your Rake tasks with RSpec. [Read this for more.](https://devmynd.com/blog/2015-3-testing-rake-tasks-with-rspec-and-fantaskspec)
 
 Installation
 ------------
