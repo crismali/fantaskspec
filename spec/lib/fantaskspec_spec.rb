@@ -44,6 +44,12 @@ RSpec.describe Fantaskspec do
         end
       end
       describe "#depend_on_subset" do
+        it "fails if the task does not depend on the specified task" do
+          expect do
+            expect(subject).to depend_on_subset("foo")
+          end.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+        end
+
         context "multi_dependent" do
           it "passes if the task depends on a subset of the specified tasks" do
             expect(subject).to depend_on_subset("some_task")
