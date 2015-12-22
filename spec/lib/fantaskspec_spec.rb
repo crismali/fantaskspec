@@ -52,7 +52,7 @@ RSpec.describe Fantaskspec do
     it "mixes in the rspec rake example group into the rake type" do
       subject.initialize_configuration(config)
 
-      if RSpec::Version::STRING.to_f == 3.2
+      if RSpec::Version::STRING.to_f >= 3.2
         expected = [Fantaskspec::RakeExampleGroup, { type: :rake }]
         suspect = config.instance_eval { @include_modules }.items_and_filters
       else
