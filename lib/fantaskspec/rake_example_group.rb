@@ -37,5 +37,6 @@ module Fantaskspec
       match do |actual|
         (actual.prerequisites & expected.map(&:to_s)) == expected.map(&:to_s)
       end
+    end
   end
 end
