@@ -32,5 +32,10 @@ module Fantaskspec
         actual.prerequisites == expected.map(&:to_s)
       end
     end
+
+    matcher :depend_on_subset do |*expected|
+      match do |actual|
+        (actual.prerequisites & expected.map(&:to_s)) == expected.map(&:to_s)
+      end
   end
 end
