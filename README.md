@@ -73,6 +73,8 @@ end
 ```
 Here `subject` and `task` are both the Rake task `some_task`. Fantaskspec also gives us the handy `depend_on` matcher so we can ensure our dependencies are correct.
 
+If you only care about some of your task's dependencies you can use `depend_on_subset` instead of `depend_on`.
+
 Here we're assuming we've called `config.infer_rake_task_specs_from_file_location!` in our
 `RSpec.configure` block so we don't need to specify `type: :rake` in any of our example groups
 as long as the test is located at `spec/tasks` or `spec/lib/tasks`.
