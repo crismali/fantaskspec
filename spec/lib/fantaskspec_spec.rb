@@ -43,6 +43,29 @@ RSpec.describe Fantaskspec do
           end
         end
       end
+      describe "#depend_on_subset" do
+        context "multi_dependent" do
+          it "passes if the task depends on a subset of the specified tasks" do
+            expect(subject).to depend_on_subset("some_task")
+          end
+
+          it "passes if the task depends on all of the specified tasks" do
+            expect(subject).to depend_on_subset("namespaced:namespaced", "some_task")
+          end
+
+          it "fails if the task does not depend on one of the specified tasks" do
+            expect do
+              expect(subject).to depend_on_subset("dependent_task", "some_task")
+            end.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+          end
+
+          it "fails if the task does not depend on the specified tasks in the same order" do
+            expect do
+              expect(subject).to depend_on_subset("some_task", "namespaced:namespaced")
+            end.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+          end
+        end
+      end
     end
   end
 
@@ -56,7 +79,7 @@ RSpec.describe Fantaskspec do
         expected = [Fantaskspec::RakeExampleGroup, { type: :rake }]
         suspect = config.instance_eval { @include_modules }.items_and_filters
       else
-        expected = [:include, Fantaskspec::RakeExampleGroup, { type: :rake }]
+        expected = [:include, Fantaskspec::RakeExampleGroup, {type: :rake}]
         suspect = config.include_or_extend_modules
       end
 
@@ -89,9 +112,9 @@ RSpec.describe Fantaskspec do
         end
 
         [
-          "this context has spaces but",
-          "ThisContextLacksSpacesButHasCapitalLettersBut",
-          "this:context:looks:like:a:rake:task:but"
+            "this context has spaces but",
+            "ThisContextLacksSpacesButHasCapitalLettersBut",
+            "this:context:looks:like:a:rake:task:but"
         ].each do |context_name|
           context context_name do
             [:subject, :task].each do |type|
