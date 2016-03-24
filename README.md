@@ -56,7 +56,7 @@ We can test it like this:
 ```ruby
 require "spec_helper"
 
-RSpec.describe "some_task" do
+RSpec.describe "namespace:taskname", type: :rake do
   it { is_expected.to depend_on(:environment) }
 
   it "executes some code" do
