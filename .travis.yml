@@ -2,6 +2,7 @@ language: ruby
 rvm:
   - 2.1.5
   - 2.2.2
+  - 2.3.1
 before_install:
   - gem update --system
   - gem --version
@@ -13,3 +14,4 @@ gemfile:
   - gemfiles/rspec_3.2.gemfile
   - gemfiles/rspec_3.3.gemfile
   - gemfiles/rspec_3.4.gemfile
+  - gemfiles/rspec_3.5.gemfile
