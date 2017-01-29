@@ -86,7 +86,7 @@ Rake testing gotchas
 --------------------
 There are 2 ways to get your Rake task's code to execute: by calling either `execute` or `invoke` on the task (or subject).
 `execute` will execute the Rake task but none of its dependencies. `invoke` will execute the task and dependencies, but
-the task and its dependencies will be disabled unless you call `reenable` on all of them. If you stick with `execute you
+the task and its dependencies will be disabled unless you call `reenable` on all of them. If you stick with `execute` you
 probaly won't have any problems.
 
 Contributing
