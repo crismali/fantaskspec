@@ -82,6 +82,15 @@ as long as the test is located at `spec/tasks` or `spec/lib/tasks`.
 We also have access to `task_name`, which is just the Fantaskspec's best guess at the name of the task
 we're specifying is, based on the description string we pass to `describe` or `context`.
 
+`to_task_arguments`
+-------------------
+If your task requires arguments, just use the `to_task_arguments` helper.
+
+```
+arguments = to_task_arguments("foo", "bar")
+task.execute(arguments)
+```
+
 Rake testing gotchas
 --------------------
 There are 2 ways to get your Rake task's code to execute: by calling either `execute` or `invoke` on the task (or subject).
