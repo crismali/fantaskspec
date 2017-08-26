@@ -1,5 +1,5 @@
 PATH
-  remote: ../
+  remote: ..
   specs:
     fantaskspec (1.0.0)
       rake (>= 11.0)
@@ -54,4 +54,4 @@ DEPENDENCIES
   rspec (~> 3.0.0)
 
 BUNDLED WITH
-   1.11.2
+   1.15.4
