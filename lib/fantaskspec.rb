@@ -5,7 +5,7 @@ require "fantaskspec/version"
 require "fantaskspec/rake_example_group"
 
 module Fantaskspec
-  TASK_SPEC_PATHS = [/spec\/tasks/, /spec\/lib\/tasks/]
+  TASK_SPEC_PATHS = [%r{spec/tasks}, %r{spec/lib/tasks}].freeze
 
   def self.initialize_configuration(config)
     config.include RakeExampleGroup, type: :rake

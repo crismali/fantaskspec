@@ -40,7 +40,7 @@ namespace :namespaced do
 end
 
 desc "Arguments task"
-task :some_arguments_task, [:arg1, :arg2] do |task, args|
+task :some_arguments_task, %i[arg1 arg2] do |task, args|
   "I don't wanna argue, but I, too, do nothing"
 end
 

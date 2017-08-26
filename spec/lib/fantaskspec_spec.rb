@@ -1,7 +1,6 @@
 require "spec_helper"
 
 RSpec.describe Fantaskspec do
-
   context "matchers", type: :rake do
     context "dependent_task" do
       describe "#depends_on" do
@@ -85,7 +84,7 @@ RSpec.describe Fantaskspec do
         expected = [Fantaskspec::RakeExampleGroup, { type: :rake }]
         suspect = config.instance_eval { @include_modules }.items_and_filters
       else
-        expected = [:include, Fantaskspec::RakeExampleGroup, {type: :rake}]
+        expected = [:include, Fantaskspec::RakeExampleGroup, { type: :rake }]
         suspect = config.include_or_extend_modules
       end
 
@@ -118,12 +117,12 @@ RSpec.describe Fantaskspec do
         end
 
         [
-            "this context has spaces but",
-            "ThisContextLacksSpacesButHasCapitalLettersBut",
-            "this:context:looks:like:a:rake:task:but"
+          "this context has spaces but",
+          "ThisContextLacksSpacesButHasCapitalLettersBut",
+          "this:context:looks:like:a:rake:task:but"
         ].each do |context_name|
           context context_name do
-            [:subject, :task].each do |type|
+            %i[subject task].each do |type|
               it "still has some_task as the #{type}" do
                 expect(send(type).name).to eq("some_task")
               end

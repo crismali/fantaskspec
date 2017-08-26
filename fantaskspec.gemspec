@@ -1,4 +1,5 @@
 # coding: utf-8
+
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "fantaskspec/version"
@@ -8,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.version       = Fantaskspec::VERSION
   spec.authors       = ["Michael Crismali"]
   spec.email         = ["michael.crismali@gmail.com"]
-  spec.summary       = %q{Makes it easy to test your Rake tasks with RSpec.}
-  spec.description   = %q{Makes it easy to test your Rake tasks with RSpec.}
+  spec.summary       = "Makes it easy to test your Rake tasks with RSpec."
+  spec.description   = "Makes it easy to test your Rake tasks with RSpec."
   spec.homepage      = "https://github.com/crismali/fantaskspec"
   spec.license       = "Apache"
 
@@ -20,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rake", ">= 11.0"
   spec.add_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "bundler", "~> 1.7"
+  spec.add_development_dependency "rubocop"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "pry-nav"
   spec.add_development_dependency "pry-doc"

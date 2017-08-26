@@ -1,0 +1,63 @@
+AllCops:
+  Include:
+    - "**/Rakefile"
+  Exclude:
+    - db/**/*
+    - gemfiles/**/*
+    - vendor/**/*
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+Lint/UnusedBlockArgument:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Security/YAMLLoad:
+  Enabled: false
+Layout/AlignParameters:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/ClassVars:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Style/FileName:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Layout/IndentHash:
+  Enabled: false
+Style/NilComparison:
+  Enabled: false
+Style/OpMethod:
+  Enabled: false
+Style/RescueModifier:
+  Enabled: false
+Style/SignalException:
+  Enabled: false
+Style/SingleLineMethods:
+  Enabled: false
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Performance/EndWith:
+  Enabled: false
