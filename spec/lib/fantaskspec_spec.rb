@@ -151,4 +151,15 @@ RSpec.describe Fantaskspec do
       end
     end
   end
+
+  describe "#to_task_arguments", type: :rake do
+    context "some_arguments_task" do
+      it "converst the given arguments to task arguments" do
+        result = to_task_arguments("foo", "bar")
+        expect(result).to be_a(Rake::TaskArguments)
+        expect(result[:arg1]).to eq("foo")
+        expect(result[:arg2]).to eq("bar")
+      end
+    end
+  end
 end

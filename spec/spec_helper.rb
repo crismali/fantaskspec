@@ -39,6 +39,11 @@ namespace :namespaced do
   end
 end
 
+desc "Arguments task"
+task :some_arguments_task, [:arg1, :arg2] do |task, args|
+  "I don't wanna argue, but I, too, do nothing"
+end
+
 RSpec.configure do |config|
   config.infer_rake_task_specs_from_file_location!
 

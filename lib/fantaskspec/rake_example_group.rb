@@ -24,6 +24,12 @@ module Fantaskspec
 
         let(:task) { ::Rake::Task[task_name] }
         subject { task }
+
+        include(Module.new do
+                  def to_task_arguments(*task_args)
+                    Rake::TaskArguments.new(task.arg_names, task_args)
+                  end
+                end)
       end
     end
 
