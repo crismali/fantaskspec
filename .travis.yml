@@ -18,3 +18,7 @@ install:
 gemfile:
   - gemfiles/rspec_3.4.gemfile
   - gemfiles/rspec_3.5.gemfile
+  - gemfiles/rspec_3.6.gemfile
+  - gemfiles/rspec_3.7.gemfile
+  - gemfiles/rspec_3.8.gemfile
+  - gemfiles/rspec_3.9.gemfile
