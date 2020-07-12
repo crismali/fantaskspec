@@ -18,10 +18,6 @@ install:
   # It causes errors when bundler tries to resolve dependencies for different Ruby versions
   - bundle install --jobs=3 --retry=3 --path=${BUNDLE_PATH:-vendor/bundle}
 
-gemfile:
-  - gemfiles/rspec_3.4.gemfile
-  - gemfiles/rspec_3.5.gemfile
-  - gemfiles/rspec_3.6.gemfile
-  - gemfiles/rspec_3.7.gemfile
-  - gemfiles/rspec_3.8.gemfile
-  - gemfiles/rspec_3.9.gemfile
+script:
+  - bundle exec appraisal install
+  - bundle exec appraisal rspec
