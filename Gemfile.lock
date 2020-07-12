@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     fantaskspec (1.1.0)
-      rake (>= 11.0)
+      rake (>= 10.0)
       rspec (~> 3.4)
 
 GEM
