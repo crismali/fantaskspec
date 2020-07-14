@@ -11,3 +11,6 @@
 *.o
 *.a
 mkmf.log
+
+# We don't need to store appraisal gem files; they are generated again in CI
+/gemfiles/
