@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fantaskspec (1.1.0)
+    fantaskspec (1.2.0)
       rake (>= 10.0)
       rspec (~> 3.4)
 
