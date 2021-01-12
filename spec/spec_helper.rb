@@ -17,6 +17,8 @@
 require_relative "../lib/fantaskspec"
 require "rspec/version"
 
+RSpec::VERSION = Gem::Version.create(RSpec::Version::STRING).freeze
+
 desc "Some rake task"
 task :some_task do
   "I don't do much"
@@ -58,7 +60,7 @@ RSpec.configure do |config|
     #   # => "be bigger than 2 and smaller than 4"
     # ...rather than:
     #   # => "be bigger than 2"
-    if RSpec::Version::STRING.to_f != 3.0
+    if RSpec::VERSION > Gem::Version.create('3.0')
       expectations.include_chain_clauses_in_custom_matcher_descriptions = true
     end
   end
